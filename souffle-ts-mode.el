@@ -4,7 +4,9 @@
 
 ;; Author: Matan Peled <chaosite(at)gmail(dot)com>
 ;; Keywords: datalog, languages
+;; URL: https://github.com/chaosite/souffle-ts-mode/
 ;; Version: 0.1
+;; Package-Requires: ((emacs "29.1"))
 
 ;; This file is NOT part of Emacs.
 
@@ -99,8 +101,7 @@
      (non_empty_record_type_list (IDENT) :anchor (COLON) :anchor
                                  (identifier (IDENT) @font-lock-type-face))
      (union_type_list (identifier (IDENT) @font-lock-type-face))
-     ((SUBTYPE) :anchor (IDENT) @font-lock-type-face)
-     )
+     ((SUBTYPE) :anchor (IDENT) @font-lock-type-face))
 
    :feature 'decl-name
    :language 'souffle
@@ -132,8 +133,7 @@
        ; matches rule bodies
        ((parent-is "rule_def") standalone-parent ,offset)
        ((parent-is "conjunction") first-sibling 0)
-       ((parent-is "disjunction") first-sibling 0)
-       )))
+       ((parent-is "disjunction") first-sibling 0))))
   "Tree-sitter indent rules for Souffle Datalog.")
 
 ;; Syntax table
@@ -195,3 +195,4 @@
     (add-to-list 'auto-mode-alist '("\\.dl$" . souffle-ts-mode)))
 
 (provide 'souffle-ts-mode)
+;;; souffle-ts-mode.el ends here
